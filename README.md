@@ -49,7 +49,7 @@ systemctl restart docker
 
 ```shell
 docker pull redis
-docker image list
+docker images
 docker run --name rds -p 9000:6379 redis
 docker ps
 sudo apt install redis-tools
@@ -73,3 +73,12 @@ docker run --name rds -p 9000:6379 -d redis
 docker exec -it rds bash
 docker exec rds redis-cli GET test
 ```
+
+## Serving site with nginx
+```shell
+docker build -t frontend -f frontend/Dockerfile .
+docker run --name nginx -p 9050:80 frontend
+# Go to http://localhost:9050/
+# Another way:
+docker run -v  $(pwd)/frontend:/usr/share/nginx/html -v $(pwd)/frontend/default.conf:/etc/nginx/conf.d/default.conf nginx
+``` 
