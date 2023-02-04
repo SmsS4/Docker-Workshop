@@ -24,7 +24,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
+docker run hello-world
 ```
+![](assets/1.png)  
 
 ## Mirror Registry
 [Tutorial link](https://docker.ir/)  
@@ -103,5 +105,5 @@ docker build -t frontend -f frontend/Dockerfile .
 docker run --name nginx -p 9050:80 frontend
 # Go to http://localhost:9050/
 # Another way:
-docker run -v  $(pwd)/frontend:/usr/share/nginx/html -v $(pwd)/frontend/default.conf:/etc/nginx/conf.d/default.conf nginx
+docker run -v  $(pwd)/frontend:/usr/share/nginx/html -v $(pwd)/frontend/default.conf:/etc/nginx/conf.d/default.conf -p 9050:80 nginx
 ``` 
