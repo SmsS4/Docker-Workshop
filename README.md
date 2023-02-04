@@ -4,7 +4,7 @@
 ## Install
 [Tutorial link](https://docs.docker.com/engine/install/)  
 
-```commandline
+```console
 sudo apt-get update
 sudo apt-get install \
     ca-certificates \
@@ -39,7 +39,7 @@ Add this to `/etc/docker/daemon.json`
 ```
 
 and then restart docker
-```commandline
+```console
 systemctl daemon-reload
 systemctl restart docker
 ```
@@ -47,8 +47,9 @@ systemctl restart docker
 
 ## First Image
 
-```commandline
+```console
 docker pull redis
+docker image list
 docker run --name rds -p 9000:6379 redis
 docker ps
 sudo apt install redis-tools
@@ -64,15 +65,11 @@ OK
 ```
 
 `-a` is for attach
-```
+```console
 docker stop rds
 docker start -a rds
 docker rm `docker ps -a -q`
 docker run --name rds -p 9000:6379 -d redis
 docker exec -it rds bash
 docker exec rds redis-cli GET test
-```
-
-```
-docker image list
 ```
