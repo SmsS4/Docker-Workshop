@@ -105,3 +105,5 @@ docker run --name nginx -p 9050:80 frontend
 # Another way:
 docker run -v  $(pwd)/frontend:/usr/share/nginx/html -v $(pwd)/frontend/default.conf:/etc/nginx/conf.d/default.conf -p 9050:80 nginx
 ``` 
+![](assets/7.png)  
+![](assets/8.png)  
