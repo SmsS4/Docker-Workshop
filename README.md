@@ -57,14 +57,8 @@ docker ps
 sudo apt install redis-tools
 redis-cli -p 9000
 ```
+![](assets/2.png)  
 
-Output:  
-```
-127.0.0.1:9000> SET test "Hello"
-OK
-127.0.0.1:9000> GET test
-"Hello"
-```
 
 `-a` is for attach
 ```shell
@@ -75,6 +69,10 @@ docker run --name rds -p 9000:6379 -d redis
 docker exec -it rds bash
 docker exec rds redis-cli GET test
 ```
+![](assets/3.png)  
+![](assets/4.png)  
+![](assets/5.png)  
+![](assets/6.png)  
 
 ## Serving site with nginx
 ### Dockerfile
