@@ -75,6 +75,29 @@ docker exec rds redis-cli GET test
 ```
 
 ## Serving site with nginx
+### Dockerfile
+```dockerfile
+FROM nginx
+COPY frontend/default.conf /etc/nginx/conf.d/default.conf
+COPY frontend/*.html /usr/share/nginx/html/
+COPY frontend/*.css /usr/share/nginx/html/
+COPY frontend/*.ttf /usr/share/nginx/html/
+COPY frontend/*.js /usr/share/nginx/html/
+COPY frontend/img/* /usr/share/nginx/html/img/
+```
+
+### Config file
+```
+server {
+    listen 80;
+
+    location /{
+        charset utf-8;
+        root /usr/share/nginx/html;
+    }
+}
+```
+
 ```shell
 docker build -t frontend -f frontend/Dockerfile .
 docker run --name nginx -p 9050:80 frontend
