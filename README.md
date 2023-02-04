@@ -43,3 +43,36 @@ and then restart docker
 systemctl daemon-reload
 systemctl restart docker
 ```
+
+
+## First Image
+
+```commandline
+docker pull redis
+docker run --name rds -p 9000:6379 redis
+docker ps
+sudo apt install redis-tools
+redis-cli -p 9000
+```
+
+Output:  
+```
+127.0.0.1:9000> SET test "Hello"
+OK
+127.0.0.1:9000> GET test
+"Hello"
+```
+
+`-a` is for attach
+```
+docker stop rds
+docker start -a rds
+docker rm `docker ps -a -q`
+docker run --name rds -p 9000:6379 -d redis
+docker exec -it rds bash
+docker exec rds redis-cli GET test
+```
+
+```
+docker image list
+```
