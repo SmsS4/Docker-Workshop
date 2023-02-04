@@ -1,0 +1,218 @@
+@font-face {
+  font-family: Vazir;
+  src: url("Vazir.ttf") format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: Vazir;
+}
+input {
+  text-align: center;
+}
+.btn, input {
+  margin-top: 2px;
+}
+.spacer {
+  height: 1px;
+}
+.padder {
+  height: 20px;
+  margin-top: 150px;
+}
+.padder,
+.subtitle,
+.title {
+  background-color: #e2dcc6;
+  direction: rtl;
+}
+.subtitle {
+  text-align: center;
+  padding: 13px;
+}
+.subtitle .description {
+  font-size: 12px;
+  font-style: italic;
+}
+.scroll-down {
+  font-size: 16px;
+  font-weight: bold;
+}
+h1 {
+  font-weight: 900;
+  font-family: Vazir;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+.title {
+  padding: 10px;
+  top: 0px;
+  text-align: center;
+  margin: auto;
+}
+.main {
+  margin: auto;
+}
+.person {
+  background-size: 400px;
+}
+.engineers {
+  min-height: 2000px;
+  background-color: #fff0dd;
+}
+.black .engineers {
+  background-image: url("img/engineers.svg");
+}
+html.black {
+  background-color: #fff0dd;
+}
+#json-display {
+  direction: ltr;
+  text-align: left;
+  margin-top: 20px;
+  height: 215px;
+  width: 600px;
+}
+#engineers {
+  transition: background-color 1200ms, opacity 500ms;
+}
+.engineers .title {
+  position: sticky;
+  z-index: 10000;
+}
+.infobox.first {
+  margin-top: 500px;
+}
+.infobox {
+  margin: auto;
+  max-width: 75%;
+}
+.infobox {
+  text-align: center;
+  font-family: Vazir;
+  margin-top: 5000px;
+  height: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+}
+.infobox-inner {
+  font-size: 18px;
+  top: 150px;
+  padding: 10px;
+  background-color: #57c8ff;
+  box-shadow: -5px 5px 5px #505050;
+  max-width: 800px;
+  position: sticky;
+  z-index: 10;
+  display: inline-block;
+}
+.infobox-inner > h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+.highlight {
+  background-color: #57c8ff;
+  display: block;
+  padding: 10px;
+  box-shadow: -5px 5px 5px #505050;
+}
+.chart img {
+  max-width: 100%;
+  height: auto;
+}
+.infobox-near-near {
+  margin-top: 100px;
+}
+.infobox-near {
+  margin-top: 1000px;
+}
+.infobox-half {
+  margin-top: 5000px;
+}
+.infobox-quarter {
+  margin-top: 2500px;
+}
+.relative {
+  position: relative;
+}
+.static {
+  position: static;
+}
+.fixed {
+  position: fixed;
+}
+blockquote {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #075379;
+}
+blockquote strong {
+  color: #a90000;
+}
+.infobox-yellow .infobox-inner {
+  background-color: #ffd438;
+  box-shadow: none;
+}
+@media (max-width: 799px) {
+  .main {
+    width: 100%;
+  }
+  .title {
+    position: sticky;
+    height: 30px;
+  }
+  h1 {
+    font-size: 14px;
+    line-height: 15px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .infobox {
+    max-width: 95%;
+  }
+  .infobox-inner {
+    border-width: 3px;
+    max-width: 90%;
+  }
+  .infobox-tall .infobox-inner {
+    top: 160px;
+  }
+  .infobox-very-tall .infobox-inner {
+    top: 100px;
+  }
+}
+@media (max-width: 450px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+@media (min-width: 800px) {
+  .mobile-only {
+    display: none;
+  }
+}
+.mute .infobox {
+  display: none !important;
+}
+.unscroll .infobox {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: auto;
+}
+.unscroll .infobox-inner {
+  position: static !important;
+  box-shadow: none;
+}
