@@ -107,3 +107,29 @@ docker run -v  $(pwd)/frontend:/usr/share/nginx/html -v $(pwd)/frontend/default.
 ``` 
 ![](assets/7.png)  
 ![](assets/8.png)  
+
+
+## Networking
+```shell
+docker network ls
+docker run --name redis-host --net=host redis
+docker network inspect host
+```
+![](assets/11.png)  
+![](assets/9.png)  
+
+```shell
+docker run --name redis-1 redis
+docker run --name redis-2 redis
+docker network inspect bridge
+```
+![](assets/10.png)  
+
+```shell
+docker network create --driver bridge redis-net
+docker network connect --alias r1 redis-net redis-1
+docker network connect --alias r2 redis-net redis-2
+docker network inspect redis-net
+docker exec redis-1 redis-cli -h r2 SET test "HELLO"
+```
+![](assets/12.png)  
