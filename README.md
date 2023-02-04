@@ -4,7 +4,7 @@
 ## Install
 [Tutorial link](https://docs.docker.com/engine/install/)  
 
-```console
+```shell
 sudo apt-get update
 sudo apt-get install \
     ca-certificates \
@@ -39,7 +39,7 @@ Add this to `/etc/docker/daemon.json`
 ```
 
 and then restart docker
-```console
+```shell
 systemctl daemon-reload
 systemctl restart docker
 ```
@@ -47,7 +47,7 @@ systemctl restart docker
 
 ## First Image
 
-```console
+```shell
 docker pull redis
 docker image list
 docker run --name rds -p 9000:6379 redis
@@ -65,7 +65,7 @@ OK
 ```
 
 `-a` is for attach
-```console
+```shell
 docker stop rds
 docker start -a rds
 docker rm `docker ps -a -q`
