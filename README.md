@@ -4,7 +4,7 @@
 ## Install
 [Tutorial link](https://docs.docker.com/engine/install/)  
 
-```bash
+```commandline
 sudo apt-get update
 sudo apt-get install \
     ca-certificates \
@@ -27,6 +27,7 @@ newgrp docker
 ```
 
 ## Mirror Registry
+[Tutorial link](https://docker.ir/)  
 A Docker registry is a system for versioning, storing and distributing Docker images. DockerHub is a hosted registry used by default when installing the Docker engine, but there are other hosted registries available for public use such as AWS and Google's own registries.
 
 Add this to `/etc/docker/daemon.json`
@@ -35,4 +36,10 @@ Add this to `/etc/docker/daemon.json`
 {
     "registry-mirrors": ["https://registry.docker.ir"]
 }
+```
+
+and then restart docker
+```commandline
+systemctl daemon-reload
+systemctl restart docker
 ```
