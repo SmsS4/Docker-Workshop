@@ -199,4 +199,20 @@ docker start -a goback
 
 ## Volume
 
+[More on environment variables 1](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa)  
+[More on environment variables 2](https://docs.docker.com/compose/environment-variables/set-environment-variables/)  
+
+```shell
+docker volume create pgdata
+docker volume list | grep "pgdata"
+docker run -v pgdata:/var/lib/postgresql/data -e  POSTGRES_PASSWORD=mysecretpassword postgres
+```
+
 ## Docker Compose
+
+```shell
+docker-compose up
+docker-compose up -d
+docker-compose logs --tail=100
+docker-compose logs --tail=100 -f
+```
