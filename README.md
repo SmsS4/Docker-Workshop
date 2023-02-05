@@ -133,3 +133,49 @@ docker network inspect redis-net
 docker exec redis-1 redis-cli -h r2 SET test "HELLO"
 ```
 ![](assets/12.png)  
+
+
+## Backend
+
+
+### Redis
+```shell
+docker run --name redis-back -d redis 
+docker network create --driver bridge my-net
+docker network connect --alias redis-server my-net redis-back
+```
+
+![](assets/13.png)  
+![](assets/14.png)  
+
+### Backend
+
+Nodejs server is running on port 5000
+
+```dockerfile
+FROM node:alpine
+WORKDIR /usr/src/app
+RUN pwd
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["node", "api.js"]
+```
+
+```shell
+docker build -t backend -f nodejs/Dockerfile nodejs
+docker run --name node-back -d backend
+docker logs node-back
+docker logs --tail=10 node-back
+docker network connect --alias back my-net node-back
+docker start node-back
+docker logs -f --tail=1 node-back # or use docker start -a node-back
+```
+![](assets/15.png)  
+
+### Frontend
+
+```shell
+docker start nginx
+docker network connect my-net nginx
+```

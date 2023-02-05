@@ -1,4 +1,5 @@
-var base_url = 'http://213.233.179.83:80/';
+var base_url = 'http://127.0.0.1:9050/';
+
 
 var toasty_config = {
     autoClose: true,
