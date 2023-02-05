@@ -179,3 +179,24 @@ docker logs -f --tail=1 node-back # or use docker start -a node-back
 docker start nginx
 docker network connect my-net nginx
 ```
+
+### Reverse Proxy
+```
+location /node/ {
+    add_header Access-Control-Allow-Origin $http_origin;
+    proxy_pass http://back:5000;
+}
+```
+
+### Sencond Backend
+```
+docker build -t gobackend -f go/Dockerfile go
+docker run --name goback --net=my-net gobackend
+docker network connect --alias goback my-net goback
+docker start -a goback
+```
+
+
+## Volume
+
+## Docker Compose
